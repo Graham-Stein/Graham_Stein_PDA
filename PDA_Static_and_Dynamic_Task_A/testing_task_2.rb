@@ -15,7 +15,14 @@ class CardGame
   end
 
   def self.highest_card(card1, card2)
-    card1.value > card2.value ? Card.name(card1) : Card.name(card2)
+    # binding.pry
+    if card1.value == card2.value
+      return "Draw"
+    elsif card1.value > card2.value
+      return Card.name(card1)
+    else
+      return Card.name(card2)
+    end
   end
 
   def self.cards_total(cards)

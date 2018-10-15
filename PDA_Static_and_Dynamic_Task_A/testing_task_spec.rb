@@ -10,6 +10,7 @@ class TestTestingTask < MiniTest::Test
     @card1 = Card.new('Spades',1)
     @card2 = Card.new('Clubs',3)
     @card3 = Card.new('Hearts', 10)
+    @card4 = Card.new('Hearts', 3)
 
     @hand = [@card1, @card2, @card3]
   end
@@ -25,6 +26,10 @@ class TestTestingTask < MiniTest::Test
 
   def test_check_for_ace__false()
     assert_equal(false, CardGame.check_for_ace(@card2))
+  end
+
+  def test_highest_draw
+    assert_equal("Draw", CardGame.highest_card(@card2, @card4))
   end
 
   def test_highest_card__2_higher_than_1
